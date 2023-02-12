@@ -1,8 +1,0 @@
----
-accounts:
-  - user_name: taro
-    user_password: password@taro
-  - user_name: jiro
-    user_password: password@jiro
-  - user_name: hanako
-    user_password: password@hanako
