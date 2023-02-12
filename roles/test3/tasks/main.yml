@@ -1,0 +1,4 @@
+- name: user account
+  debug:
+    msg: "{{ item['user_name'] }}"
+  loop: "{{ accounts }}"

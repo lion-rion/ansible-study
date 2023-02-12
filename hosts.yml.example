@@ -1,0 +1,22 @@
+---
+all:
+  vars:
+    ansible_port: 5986
+    ansible_winrm_transport: ntlm
+    ansible_connection: winrm
+    ansible_winrm_server_cert_validation: ignore
+    ansible_user: administrator
+  hosts:
+    windows_node:
+      ansible_host: xxx.xxx.xxx.xxx
+      ansible_password: winrm_password
+    windows_dc:
+      ansible_host: yyy.yyy.yyy.yyy
+      ansible_password: winrm_password
+  children:
+    dc:
+      hosts:
+        windows_dc:
+    nodes:
+      hosts:
+        windows_node:

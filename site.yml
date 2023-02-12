@@ -1,0 +1,6 @@
+---
+- name: domain controller setting
+  import_playbook: dc.yml
+
+- name: node setting
+  import_playbook: node.yml

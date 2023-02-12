@@ -1,0 +1,41 @@
+- name: Install feature
+  win_feature:
+    name:
+    - AD-Domain-Services
+    - DNS
+    state: present
+    include_sub_features: no
+    include_management_tools: yes
+- name: Create new forest
+  win_domain:
+    dns_domain_name: 41ntern.local
+    safe_mode_password: 028is0621@Ashi
+  register: result
+- name: Reboot after creation
+  win_reboot:
+    msg: "Server config in progress; rebooting..."
+  when: result.reboot_required
+- name: Create Organization Unit
+  community.windows.win_domain_ou:
+    name: Yuki
+    path: dc=41ntern,dc=local
+    state: present
+- name: Create USERS OU
+  community.windows.win_domain_ou:
+    name: USERS
+    path: ou=Yuki,dc=41ntern,dc=local
+    state: present
+- name: Create COMPUTER OU
+  community.windows.win_domain_ou:
+    name: COMPUTER
+    path: ou=Yuki,dc=41ntern,dc=local
+    state: present
+- name: Create User
+  win_domain_user:
+    name: "{{ item['name'] }}"
+    firstname: "{{ item['firstname'] }}"
+    surname: "{{ item['surname'] }}"
+    path: ou=USERS,ou=Yuki,dc=41ntern,dc=local
+    password: "{{ item['password'] }}"
+    state: present
+  loop: "{{ accounts }}"

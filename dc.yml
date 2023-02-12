@@ -1,0 +1,5 @@
+---
+- hosts: windows_dc
+  gather_facts: false
+  roles:
+    - dc

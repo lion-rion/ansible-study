@@ -1,0 +1,5 @@
+---
+- hosts: windows_node
+  gather_facts: false
+  roles:
+    - node

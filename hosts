@@ -1,0 +1,15 @@
+[windows_dc]
+xxx.xxx.xxx.xxx
+
+[node_1]
+xxx.xxx.xxx.xxx
+
+[node_1:vars]
+
+
+[node_2]
+yyy.yyy.yyy.yyy
+
+[node:children]
+node_1
+node_2

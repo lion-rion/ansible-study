@@ -1,0 +1,14 @@
+---
+accounts:
+  - name: taro
+    firstname: taro
+    surname: taro
+    password: p@ssw0rd
+  - name: hanako
+    firstname: hanako
+    surname: hanako
+    password: p@ssw0rd
+  - name: mo
+    firstname: mo
+    surname: mo
+    password: p@ssw0rd

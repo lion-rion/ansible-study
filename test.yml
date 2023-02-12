@@ -1,0 +1,6 @@
+---
+- hosts: windows_dc
+  gather_facts: false
+  tasks:
+  - name: test
+    win_ping:
