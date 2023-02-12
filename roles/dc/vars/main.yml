@@ -1,5 +1,9 @@
 ---
 accounts:
+  - name: USER1
+    firstname: USER1
+    surname: USER1
+    password: p@ssw0rd
   - name: taro
     firstname: taro
     surname: taro

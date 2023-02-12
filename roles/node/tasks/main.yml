@@ -14,3 +14,7 @@
   win_reboot:
     msg: "Joining domain and Rebooting..."
   when: domain_state.reboot_required
+- name: Install IIS
+    win_feature:
+      name: Web-Server
+      state: present
