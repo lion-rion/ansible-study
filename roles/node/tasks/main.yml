@@ -37,21 +37,17 @@
     src: files/top
     dest: C:\inetpub\wwwroot
 
-
 - name: Create a new application pool in 'Started' state
   win_iis_webapppool:
-    name: top
+    name: WebApp
     state: started
-    attributes:
-      managedRuntimeVersion: No Managed Code
-      autoStart: true
 
-- name: Add webapplication on IIS.
+- name: Add webapplication on IIS with path = /top
   win_iis_webapplication:
     name: top
     site: Default Web Site
     state: present
-    application_pool: top
+    application_pool: WebApp
     physical_path: C:\inetpub\wwwroot\top
 
 - name: Ensure the application pool started
