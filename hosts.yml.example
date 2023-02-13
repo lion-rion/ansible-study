@@ -7,11 +7,11 @@ all:
     ansible_winrm_server_cert_validation: ignore
     ansible_user: administrator
   hosts:
-    windows_node:
-      ansible_host: xxx.xxx.xxx.xxx
-      ansible_password: winrm_password
     windows_dc:
       ansible_host: yyy.yyy.yyy.yyy
+      ansible_password: winrm_password
+    windows_node:
+      ansible_host: xxx.xxx.xxx.xxx
       ansible_password: winrm_password
   children:
     dc:
