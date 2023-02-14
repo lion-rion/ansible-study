@@ -1,7 +1,18 @@
+- name: Get local-ipv4-address from dc
+  ansible.windows.win_uri:
+    url: http://169.254.169.254/latest/meta-data/local-ipv4
+    return_content: true
+  delegate_to: windows_dc
+  register: content
+  
+- name: print ipv4 address
+  debug:
+    msg: "{{ content.content }}"
+
 - name: change dns server
   ansible.windows.win_dns_client:
     adapter_names: Ethernet 2
-    dns_servers: 172.31.50.237
+    dns_servers: "{{ content.content }}"
 
 - name: join domain
   win_domain_membership:
